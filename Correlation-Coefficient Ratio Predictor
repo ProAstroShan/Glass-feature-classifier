@@ -112,3 +112,7 @@ try:
   print(f"2nd most important feature: Feature {second_best_feature+1}, {headers[second_best_feature]}")
 except FileNotFoundError:
   print("Upload the file named 'glass1.csv' before running the program!") 
+
+#Outputs generated:
+#1st most important feature: Feature 3, Magnesium
+#2nd most important feature: Feature 8, Barium
