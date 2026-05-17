@@ -1,0 +1,37 @@
+#Importing dependent modules
+import pandas as pd
+import collections
+import itertools
+
+#Formatting table data into an ordered dictionary
+formatted_data = collections.defaultdict(list)
+try:
+  data = pd.read_csv("glass1.csv")
+except FileNotFoundError as e:
+  print(e)
+else:
+  #Does not include glass, will be added later
+  feature_headers: list = [
+      "Refractive Index",
+      "Sodium",
+      "Magnesium",
+      "Aluminium",
+      "Silicon",
+      "Potassium",
+      "Barium",
+      "Iron"
+      ]
+  for headers in feature_headers:    
+    for data_points in data[headers]:
+      formatted_data[headers].append(data_points)
+  for glass_type in data["Glass"]:
+    formatted_data["Glass"].append(glass_type)
+  
+  feature_pairs: list = list(itertools.combinations(feature_headers,2))
+
+
+#test
+first_pair = feature_pairs[0]
+print(first_pair)
+print(formatted_data[first_pair[0]])
+print(formatted_data[first_pair[1]])
