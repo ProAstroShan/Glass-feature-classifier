@@ -1,0 +1,12 @@
+try:
+    raw_data = open("glass1.csv","r")
+except FileNotFoundError as e:
+    print(e)
+else:
+  data_list: list[str] = raw_data.readlines()
+  # slicing with [:-1] to remove the \n at the end of glass type, and 
+  # splitting to allow each row to be a list. formatted_data is a list 
+  # containing each row of samples, and each sample is a list of feature data
+  formatted_data: list[list[str]] = [row[:-1].split(",") for row in data_list]
+
+print(formatted_data)
