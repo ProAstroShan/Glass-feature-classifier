@@ -24,6 +24,7 @@ else:
             "Aluminium",
             "Silicon",
             "Potassium",
+            "Calcium",
             "Barium",
             "Iron",
         ]
